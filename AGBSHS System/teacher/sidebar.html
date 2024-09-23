@@ -1,0 +1,101 @@
+<input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>Teacher</h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="background-image: url(agbshs_logo.jpg)"></div>
+                <h4>Mr. Wick</h4>
+                <small>Adviser</small>
+            </div>
+
+        <div class="side-menu">
+            <ul>
+                <li>
+                    <a id="myButton" href="dashboard.php">
+                        <span class="las la-home"></span>
+                        <small>Dashboard</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="student.php">
+                        <span class="las la-user-alt"></span>
+                        <small>Student</small>
+                    </a>
+                </li>
+                <li>
+                    <a id="myButton" href="attendance.php">
+                        <span class="las la-tasks"></span>
+                        <small>Attendance</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="report.php">
+                        <span class="las la-clipboard-list"></span>
+                        <small>Report</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="logoutLink">
+                        <span class="las la-sign-out-alt"></span>
+                        <small>Log out</small>
+                    </a>
+                </li>
+                
+                <!-- Logout Confirmation Modal -->
+                <div id="logoutModal" class="modal" style="display:none;">
+                    <div class="modal-content">
+                        <span id="closeModal" class="close">&times;</span>
+                        <p>Are you sure you want to log out?</p>
+                        <button id="confirmLogout">Yes, Log Out</button>
+                        <button id="cancelLogout">Cancel</button>
+                    </div>
+                </div>
+
+                <!-- JavaScript for Modal Functionality -->
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const logoutLink = document.getElementById('logoutLink');
+                        const logoutModal = document.getElementById('logoutModal');
+                        const closeModal = document.getElementById('closeModal');
+                        const cancelLogout = document.getElementById('cancelLogout');
+                        const confirmLogout = document.getElementById('confirmLogout');
+
+                        // Show the modal when logout link is clicked
+                        logoutLink.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            logoutModal.style.display = 'flex'; // Show the modal
+                        });
+
+                        // Close the modal when close button (X) is clicked
+                        closeModal.addEventListener('click', function() {
+                            logoutModal.style.display = 'none'; // Hide the modal
+                        });
+
+                        // Close the modal when cancel button is clicked
+                        cancelLogout.addEventListener('click', function() {
+                            logoutModal.style.display = 'none'; // Hide the modal
+                        });
+
+                        // Logout when confirm button is clicked
+                        confirmLogout.addEventListener('click', function() {
+                            window.location.href = 'teacherlogin.php'; // Redirect to login page
+                        });
+
+                        // Close the modal if the user clicks anywhere outside of the modal content
+                        window.addEventListener('click', function(event) {
+                            if (event.target === logoutModal) {
+                                logoutModal.style.display = 'none'; // Hide the modal
+                            }
+                        });
+                    });
+                </script>
+            </ul>
+        </div>
+
+        
+
+        </div>
+    </div>
